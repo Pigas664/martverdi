@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MartVerdi | Mercado</title>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7b2f0a27b7.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-links-left">
+        <a href="#inicio">Home</a>
+        <a href="#produtos">Ofertas</a>
+        <a href="#alimentos">Mercado</a>
+        <a href="#alimentos">Hortifruti</a>
+        <a href="#alimentos">Açougue</a>
+        <a href="#alimentos">Padaria</a>
+        <a href="#alimentos">Bebidas</a>
+        <a href="#alimentos">Limpeza</a>
+      </div>
+
+      <div class="top-links-right">
+        <a href="./pages/login.html" id="topMinhaConta"><i class="fa-regular fa-user"></i> Minha conta</a>
+        <span><i class="fa-solid fa-location-dot"></i> Rastreie seu pedido</span>
+        <span><i class="fa-solid fa-truck"></i> Entrega em todo o Brasil</span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-principal">
+
+      <a href="#inicio" class="logo">
+        <img src="./assets/img/martverdi-icon.png" alt="MartVerdi">
+      </a>
+
+      <div class="busca-container">
+        <div class="busca">
+          <input type="text" id="campoBusca" placeholder="Busque por produtos, marcas ou categorias...">
+          <button type="button" aria-label="Pesquisar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div id="resultadoBusca" class="resultado-busca"></div>
+      </div>
+
+      <a href="./pages/login.html" class="usuario-topo" aria-label="Entrar ou criar conta">
+        <img src="./assets/img/conta.png" alt="Minha conta">
+        <div>
+          <strong>Minha conta</strong>
+          <span id="usuarioTopo">Acesse ou cadastre-se</span>
+        </div>
+      </a>
+
+      <a target="_self" href="./pages/carrinho.html" target="_self" class="carrinho-link" aria-label="Carrinho">
+        <img src="./assets/img/carrinho.png" alt="Carrinho">
+        <span id="contadorCarrinho">0</span>
+      </a>
+    </div>
+
+    <div class="menu-secundario">
+      <button class="departamentos" type="button">
+        <i class="fa-solid fa-bars"></i>
+        Departamentos
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <nav>
+        <a href="#produtos">Ofertas do dia</a>
+        <a href="#alimentos">Produtos</a>
+        <a href="#alimentos">Cupons</a>
+        <a href="#alimentos">Frete Grátis</a>
+        <a href="#alimentos">Novidades</a>
+        <a href="#alimentos">Hortifruti</a>
+        <a href="#alimentos">Açougue</a>
+        <a href="#alimentos">Padaria</a>
+      </nav>
+
+      <button class="cep" id="abrirCep" type="button" aria-label="Cadastrar ou alterar CEP">
+        <i class="fa-solid fa-location-dot"></i>
+        <span id="cepTexto">Informe seu CEP</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="cep-modal" id="cepModal" hidden>
+    <div class="cep-modal-overlay" data-fechar-cep></div>
+    <section class="cep-modal-card" role="dialog" aria-modal="true" aria-labelledby="cepTitulo">
+      <button class="cep-modal-fechar" type="button" data-fechar-cep aria-label="Fechar">&times;</button>
+      <span class="section-kicker">ENTREGA</span>
+      <h2 id="cepTitulo">Informe seu CEP</h2>
+      <p>Cadastre seu CEP para deixar seus dados de entrega sempre à mão.</p>
+      <label for="cepInput">CEP</label>
+      <input id="cepInput" type="text" inputmode="numeric" maxlength="9" placeholder="00000-000">
+      <button id="salvarCep" class="cep-modal-salvar" type="button">Salvar CEP</button>
+      <small id="cepMensagem"></small>
+    </section>
+  </div>
+
+  <main>
+    <section class="banner banner-carousel" id="inicio" aria-label="Ofertas e destaques MartVerdi">
+      <div class="banner-track" id="bannerTrack">
+
+        <article class="banner-slide banner-slide-image">
+          <img src="./assets/img/banners/01-acougue-martverdi.png" alt="Ofertas do Açougue MartVerdi">
+        </article>
+
+        <article class="banner-slide banner-slide-image">
+          <img src="./assets/img/banners/02-laticinios-martverdi.png" alt="Ofertas de Laticínios MartVerdi">
+        </article>
+
+        <article class="banner-slide banner-slide-image">
+          <img src="./assets/img/banners/03-bebidas-martverdi.png" alt="Ofertas de Bebidas MartVerdi">
+        </article>
+
+        <article class="banner-slide banner-slide-image">
+          <img src="./assets/img/banners/04-biscoitos-doces-martverdi.png" alt="Ofertas de Biscoitos e Doces MartVerdi">
+        </article>
+
+      </div>
+
+      <div class="banner-controls" aria-label="Controles do banner">
+        <button type="button" class="banner-arrow banner-prev" aria-label="Oferta anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="banner-dots" id="bannerDots">
+          <button type="button" class="active" aria-label="Ir para oferta 1" aria-current="true"></button>
+          <button type="button" aria-label="Ir para oferta 2" aria-current="false"></button>
+          <button type="button" aria-label="Ir para oferta 3" aria-current="false"></button>
+          <button type="button" aria-label="Ir para oferta 4" aria-current="false"></button>
+        </div>
+        <button type="button" class="banner-arrow banner-next" aria-label="Próxima oferta"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <section class="beneficios">
+      <div><i class="fa-solid fa-truck-fast"></i><div><strong>Entrega rápida</strong><span>Segura e prática</span></div></div>
+      <div><i class="fa-solid fa-percent"></i><div><strong>Ofertas toda semana</strong><span>Economize mais</span></div></div>
+      <div><i class="fa-solid fa-shield-halved"></i><div><strong>Produtos de qualidade</strong><span>Escolhas para você</span></div></div>
+      <div><i class="fa-solid fa-credit-card"></i><div><strong>Pagamento fácil</strong><span>PIX e cartões</span></div></div>
+    </section>
+
+    <section class="promo-strip">
+      <div class="promo-copy">
+        <span>OFERTAS ESPECIAIS</span>
+        <h2>Preços que cabem no seu dia a dia!</h2>
+        <p>Confira produtos selecionados com condições especiais.</p>
+      </div>
+      <div class="promo-products">
+        <div class="mini-product"><span>Hortifruti</span><strong>Fresquinho</strong></div>
+        <div class="mini-product"><span>Mercearia</span><strong>Economize</strong></div>
+        <div class="mini-product"><span>Casa</span><strong>Praticidade</strong></div>
+      </div>
+      <a href="#produtos" class="promo-button">Comprar agora <i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
+    <section class="login-box">
+      <div>
+        <span class="section-kicker">ÁREA DO CLIENTE</span>
+        <h2>Acesse sua conta</h2>
+        <p>Entre ou cadastre-se para acompanhar seus pedidos e aproveitar melhor o MartVerdi.</p>
+      </div>
+      <a class="login-link-button" href="./pages/login.html">Entrar ou cadastrar <i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
+    <section class="alimentos" id="alimentos">
+      <div class="alimentos-breadcrumb"><a href="#inicio">Início</a><i class="fa-solid fa-chevron-right"></i><span>Alimentos</span></div>
+
+      <div class="alimentos-heading">
+        <div>
+          <span class="section-kicker">MARTVERDI</span>
+          <h2>Alimentos</h2>
+          <p>Encontre tudo para sua despensa em um só lugar.</p>
+        </div>
+        <div class="alimentos-total" id="alimentosTotal">50 produtos</div>
+      </div>
+
+      <div class="alimentos-categorias-wrap">
+        <button class="categoria-scroll-btn categoria-scroll-prev" type="button" aria-label="Categorias anteriores"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="alimentos-categorias" id="alimentosCategorias">
+          <button class="categoria-chip active" data-categoria="Todos"><i class="fa-solid fa-border-all"></i><span>Todos</span></button>
+          <button class="categoria-chip" data-categoria="Mercearia"><i class="fa-solid fa-basket-shopping"></i><span>Mercearia</span></button>
+          <button class="categoria-chip" data-categoria="Laticínios"><i class="fa-solid fa-cheese"></i><span>Laticínios</span></button>
+          <button class="categoria-chip" data-categoria="Bebidas"><i class="fa-solid fa-bottle-water"></i><span>Bebidas</span></button>
+          <button class="categoria-chip" data-categoria="Açougue"><i class="fa-solid fa-drumstick-bite"></i><span>Açougue</span></button>
+          <button class="categoria-chip" data-categoria="Biscoitos e Doces"><i class="fa-solid fa-cookie-bite"></i><span>Biscoitos e doces</span></button>
+          <button class="categoria-chip" data-categoria="Padaria"><i class="fa-solid fa-bread-slice"></i><span>Padaria</span></button>
+          <button class="categoria-chip" data-categoria="Congelados"><i class="fa-solid fa-snowflake"></i><span>Congelados</span></button>
+          <button class="categoria-chip" data-categoria="Limpeza"><i class="fa-solid fa-pump-soap"></i><span>Limpeza</span></button>
+          <button class="categoria-chip" data-categoria="Higiene Pessoal"><i class="fa-solid fa-pump-soap"></i><span>Higiene</span></button>
+        </div>
+        <button class="categoria-scroll-btn categoria-scroll-next" type="button" aria-label="Próximas categorias"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+
+      <div class="alimentos-layout">
+        <aside class="filtros-alimentos">
+          <div class="filtros-topo"><strong>Filtre por</strong><button type="button" id="limparFiltros">Limpar</button></div>
+          <div class="filtro-grupo">
+            <button class="filtro-titulo" type="button"><span>Categorias</span><i class="fa-solid fa-chevron-up"></i></button>
+            <label><input type="checkbox" value="Mercearia" class="filtro-categoria"> Mercearia</label>
+            <label><input type="checkbox" value="Laticínios" class="filtro-categoria"> Laticínios</label>
+            <label><input type="checkbox" value="Bebidas" class="filtro-categoria"> Bebidas</label>
+            <label><input type="checkbox" value="Açougue" class="filtro-categoria"> Açougue</label>
+            <label><input type="checkbox" value="Limpeza" class="filtro-categoria"> Limpeza</label>
+          </div>
+          <div class="filtro-grupo">
+            <button class="filtro-titulo" type="button"><span>Preço</span><i class="fa-solid fa-chevron-up"></i></button>
+            <label class="preco-input"><span>R$</span><input id="precoMin" type="number" min="0" step="0.01" placeholder="Mínimo"></label>
+            <label class="preco-input"><span>R$</span><input id="precoMax" type="number" min="0" step="0.01" placeholder="Máximo"></label>
+          </div>
+        </aside>
+
+        <div class="alimentos-resultados">
+          <div class="resultado-topo">
+            <div><strong id="resultadoQuantidade">50 produtos</strong><span id="resultadoFiltroTexto"> em todas as categorias</span></div>
+            <label class="ordenacao">Ordenar por
+              <select id="ordenarProdutos">
+                <option value="relevancia">Mais relevantes</option>
+                <option value="menor-preco">Menor preço</option>
+                <option value="maior-preco">Maior preço</option>
+                <option value="az">Nome: A-Z</option>
+              </select>
+            </label>
+          </div>
+          <div class="produtos-grid alimentos-grid" id="alimentosGrid"></div>
+          <div class="alimentos-vazio" id="alimentosVazio" hidden>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>Nenhum produto encontrado</h3>
+            <p>Tente mudar os filtros ou pesquisar outro produto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mantemos este ID para links antigos do projeto. -->
+    <span id="categorias" class="ancora-legada"></span>
+
+    <section class="produtos" id="produtos">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">MELHORES PREÇOS</span>
+          <h2>Ofertas em destaque</h2>
+        </div>
+        <a href="#alimentos">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="produtos-grid">
+        <div class="produto-card">
+          <div class="produto-imagem"><span class="produto-badge">OFERTA</span><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=1000" alt="Contra Filé"></div>
+          <div class="produto-info"><h3>Contra Filé</h3><div class="stars">★★★★★</div><span>R$ 46,99/kg</span><button class="btn-carrinho">Adicionar ao Carrinho</button></div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-imagem"><span class="produto-badge">OFERTA</span><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1000" alt="Arroz"></div>
+          <div class="produto-info"><h3>Arroz 5kg</h3><div class="stars">★★★★★</div><span>R$ 21,99</span><button class="btn-carrinho">Adicionar ao Carrinho</button></div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-imagem"><span class="produto-badge">FRESCO</span><img src="./assets/img/maracuja.jpg" alt="Maracujá"></div>
+          <div class="produto-info"><h3>Maracujá</h3><div class="stars">★★★★★</div><span>R$ 6,99/kg</span><button class="btn-carrinho">Adicionar ao Carrinho</button></div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-imagem"><span class="produto-badge">OFERTA</span><img src="./assets/img/sabao-em-po.jpg" alt="Sabão em Pó"></div>
+          <div class="produto-info"><h3>Sabão em Pó</h3><div class="stars">★★★★★</div><span>R$ 36,99</span><button class="btn-carrinho">Adicionar ao Carrinho</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <span class="section-kicker">SOBRE NÓS</span>
+      <h2>Um mercado pensado para você</h2>
+      <p>Desde 2010, o MartVerdi oferece produtos de qualidade com preços acessíveis para toda a família. Trabalhamos diariamente para garantir variedade, economia e atendimento excelente.</p>
+      <div class="sobre-numeros"><div><h3>15+</h3><span>Anos</span></div><div><h3>5000+</h3><span>Clientes</span></div><div><h3>100%</h3><span>Qualidade</span></div></div>
+    </section>
+
+    <section class="contato" id="contato">
+      <div class="section-heading"><div><span class="section-kicker">FALE CONOSCO</span><h2>Visite o MartVerdi</h2></div></div>
+      <div class="contato-grid">
+        <div class="contato-card"><i class="fa-solid fa-location-dot"></i><h3>Endereço</h3><p>Rua das Flores, 123</p><p>Barueri - SP</p></div>
+        <div class="contato-card"><i class="fa-brands fa-whatsapp"></i><h3>WhatsApp</h3><p>(11) 99999-9999</p></div>
+        <div class="contato-card"><i class="fa-solid fa-clock"></i><h3>Horário</h3><p>Segunda a Sábado</p><p>08h às 22h</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div><h3>MartVerdi</h3><p>Seu mercado com produtos frescos, variedade e atendimento de qualidade.</p></div>
+      <div><h3>Links Rápidos</h3><p><a href="#inicio">Início</a></p><p><a href="#alimentos">Produtos</a></p><p><a href="#contato">Contato</a></p></div>
+      <div><h3>Pagamento</h3><p>Aceitamos cartões, PIX e dinheiro.</p></div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast">Produto adicionado ao carrinho!</div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
